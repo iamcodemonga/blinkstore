@@ -10,13 +10,17 @@ const Navbtn = (props: Props) => {
 
     const { connected, publicKey } = useWallet();
     const walletBtnStyle = {
-        padding: "0 20px",
-        fontSize: "14px",
-        borderRadius: "10px"
+        padding: "5px 30px",
+        fontSize: "12px",
+        borderRadius: "200px",
+        backgroundColor: "#313638"
     }
 
     return (
-        <WalletMultiButton style={walletBtnStyle} ></WalletMultiButton>
+        <div className='flex items-center space-x-5'>
+            {/* {connected ? <a href="" className='text-sm'>Dashboard</a> : null} */}
+            <WalletMultiButton style={walletBtnStyle} >{!connected && "connect wallet"}</WalletMultiButton>
+        </div>
     )
 }
 

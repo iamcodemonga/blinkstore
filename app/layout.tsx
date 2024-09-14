@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import WalletSetup from "@/components/WalletSetup";
+import WalletSetup from "@/providers/WalletSetup";
+// import WalletSetup from "@/components/WalletSetup";
 
 
 export const metadata: Metadata = {
@@ -17,10 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={``} >
+      <body className={`bg-white text-black`} >
         <WalletSetup>
           {children}
-          <ToastContainer
+        </WalletSetup>
+        <ToastContainer
             position="top-right"
             autoClose={5000}
             hideProgressBar={false}
@@ -32,7 +34,6 @@ export default function RootLayout({
             pauseOnHover
             theme="colored"
           />
-        </WalletSetup>
       </body>
     </html>
   );

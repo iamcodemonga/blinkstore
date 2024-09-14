@@ -25,8 +25,10 @@ const Banner = () => {
     const { connected } = useWallet();
     const walletBtnStyle = {
         padding: "20px 40px",
-        fontSize: "16px",
-        borderRadius: "10px"
+        fontSize: "14px",
+        borderRadius: "200px",
+        backgroundColor: "#e8e9eb",
+        color: "black"
         // border: "2px solid indigo",
         // backgroundColor: "transparent"
       }
@@ -79,7 +81,7 @@ const Banner = () => {
                 <div className='px-5 md:w-3/5 space-y-7 flex flex-col items-center mt-36'>
                     <h1 className='text-2xl md:text-5xl font-bold text-white leading-[1.15] text-center'>Supercharge your product sales by creating and sharing blinks to your customers on digital platforms.</h1>
                     <div>
-                        {connected ? <button className='rounded-lg py-4 px-7 bg-white text-gray-700 font-bold text-sm' onClick={handleShow}>Add Product</button> : <WalletMultiButton style={walletBtnStyle}></WalletMultiButton>}
+                        {connected ? <button className='rounded-full py-4 px-8 bg-[#e8e9eb] text-gray-700 font-bold text-xs' onClick={handleShow}>Add Product</button> : <WalletMultiButton style={walletBtnStyle}>{!connected && "Get started"}</WalletMultiButton>}
                     </div>
                 </div>
             </div>
