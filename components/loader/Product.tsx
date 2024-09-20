@@ -1,9 +1,5 @@
 "use client"
 
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { toast } from 'react-toastify';
-
 const ProductLoader = () => {
 
     return (

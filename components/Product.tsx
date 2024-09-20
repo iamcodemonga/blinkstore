@@ -1,13 +1,14 @@
 "use client"
 
 import axios from 'axios'
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
 
 const Product = ({ item }: { item: { _id: string, image: string, title: string, description: string, price: number }}) => {
     const [copied, setCopied] = useState(false);
-    const link = `${process.env.NEXT_PUBLIC_ROOT}/api/actions/product?id=${item._id}`;
-    const dialtoLink = `https://dial.to/developer?url=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Factions%2Fproduct%3Fid%${item._id}&cluster=devnet`
+    const actionlink = `${process.env.NEXT_PUBLIC_ROOTURL}/api/actions/product/${item._id}`;
+    const link = `${process.env.NEXT_PUBLIC_ROOTURL}/productblink/${item._id}`;
 
     const copyToClipboard = async (text: string) => {
         try {
@@ -23,12 +24,12 @@ const Product = ({ item }: { item: { _id: string, image: string, title: string, 
       };
 
     return (
-        <div className='border p-2 space-y-3'>
-            <div>
-                <img src={item.image} className='w-full aspect-[3/4] object-cover' />
+        <div className='border p-2'>
+            <div className='mb-3'>
+                <Link href={`/productblink/${item._id}`}><img src={item.image} className='w-full aspect-[3/4] object-cover' /></Link>
             </div>
-            <h1 className='font-bold text-base'>{item.title}</h1>
-            <p className='text-sm text-gray-500'>{item.description}</p>
+            <Link href={`/productblick/${item._id}`} className='font-bold text-base mb-1 block'>{item.title}</Link>
+            <p className='text-sm text-gray-500 mb-4'>{item.description}</p>
             <div className='w-full flex justify-between items-center'>
                 <span className='text-xs text-green-500 font-semibold'>{item.price}SOL</span>
                 <button className='py-2 px-4 bg-green-500 rounded-full text-xs text-gray-800 hover:bg-gray-800 hover:text-white' onClick={async() => await copyToClipboard(link)}>{copied ? "Copied" : "Copy blink"}</button>
