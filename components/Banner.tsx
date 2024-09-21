@@ -47,7 +47,7 @@ const Banner = () => {
         getProducts()
         .then(products => {
             setAllProducts(products)
-            console.log(products);
+            // console.log(products);
         })
     }, [])
 
@@ -66,7 +66,7 @@ const Banner = () => {
             })
             toast.success("Product uploaded successfully")
             setVisible(false)
-            console.log(data)
+            // console.log(data)
         } catch (error) {
             console.log(error)
         }

@@ -15,15 +15,9 @@ type Pageprops  = {
 }
 
 async function fetchProductDetails(productid: string) {
-    // const response = await axios(`${process.env.ROOTURL}/api/product/${productid}`);
-    const response = await fetch(`${process.env.ROOTURL}/api/product/${productid}`, {
-        headers: {
-          'Content-Type': 'application/json',
-        //   'X-Action-Version': '2.1.3',
-          'X-Blockchain-Ids': 'solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1',
-        }
-    });
-    return response.json();
+    const response = await axios(`${process.env.ROOTURL}/api/product/${productid}`);
+    // const response = await fetch(`${process.env.ROOTURL}/api/product/${productid}`);
+    return response.data;
 }
 
 export async function generateMetadata({ params }: { params: { productid: string } }): Promise<Metadata> {
@@ -74,7 +68,7 @@ const page = async({ params }: Pageprops) => {
                     <div>
                         <h1 className='text-3xl font-black mb-3'>{productDetails.title}</h1>
                         <p className='text-green-500 text-sm font-semibold mb-3'>{productDetails.price}SOL</p>
-                        <p className='text-gray-700 mb-7'>{productDetails.description} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur incidunt ullam animi consequatur dolorum, nisi, adipisci molestias quidem a magnam ut quo enim numquam saepe, dolor laborum quibusdam ipsa quaerat.</p>
+                        <p className='text-gray-700 mb-7'>{productDetails.description}</p>
                         <BlinkBtn id={productDetails._id} />
                     </div>
                 </div>

@@ -25,7 +25,7 @@ const AllProducts = () => {
     const [ pending, setPending ] = useState<boolean>(true)
     const [ limit, setLimit ] = useState<number>(4)
     const { connected, publicKey } = useWallet();
-    console.log(publicKey);
+    // console.log(publicKey);
     
 
 
