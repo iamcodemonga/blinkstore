@@ -5,8 +5,8 @@ export const GET = async () => {
     rules: [
       // map all root level routes to an action
       {
-        pathPattern: "/productblink/*",
-        apiPath: "/api/actions/product/*",
+        pathPattern: "api/actions",
+        apiPath: "/api/actions",
       },
     ],
   };

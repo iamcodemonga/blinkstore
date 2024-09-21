@@ -10,7 +10,7 @@ type Props = {
 const BlinkBtn = ({ id }: Props) => {
 
     const [copied, setCopied] = useState(false);
-    const link = `${process.env.NEXT_PUBLIC_ROOTURL}/api/actions/product/${id}`;
+    const actionlink = `${process.env.NEXT_PUBLIC_ROOTURL}/api/actions?id=${id}`;
 
     const copyToClipboard = async (text: string) => {
         try {
@@ -26,7 +26,7 @@ const BlinkBtn = ({ id }: Props) => {
       };
 
     return (
-        <button className=' w-full py-5 bg-gray-900 rounded-full text-sm text-gray-300 hover:bg-gray-800 hover:text-white' onClick={async() => await copyToClipboard(link)}>{copied ? "Copied" : "Copy blink"}</button>
+        <button className=' w-full py-5 bg-gray-900 rounded-full text-sm text-gray-300 hover:bg-gray-800 hover:text-white' onClick={async() => await copyToClipboard(actionlink)}>{copied ? "Copied" : "Copy blink"}</button>
     )
 }
 
