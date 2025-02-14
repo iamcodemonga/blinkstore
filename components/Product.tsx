@@ -24,15 +24,15 @@ const Product = ({ item }: { item: { _id: string, image: string, title: string, 
       };
 
     return (
-        <div className='border p-2'>
-            <div className='mb-3'>
-                <Link href={`/productblink/${item._id}`}><img src={item.image} className='w-full aspect-[3/4] object-cover' /></Link>
+        <div className='borde flex flex-col justify-between'>
+            <div className='mb-2'>
+                <Link href={`/productblink/${item._id}`} className='hover:zoom-in-150'><img src={item.image} className='w-full aspect-square object-cover rounded-t-lg hover:zoom-in-150' /></Link>
+                <Link href={`/productblink/${item._id}`} className='text-xs lg:text-base block mt-3'>{item.title}</Link>
+                <span className='text-[10px] lg:text-sm text-green-500'>{item.price}SOL</span>
             </div>
-            <Link href={`/productblink/${item._id}`} className='font-bold text-base mb-1 block'>{item.title}</Link>
-            <p className='text-sm text-gray-500 mb-4'>{item.description}</p>
-            <div className='w-full flex justify-between items-center'>
-                <span className='text-xs text-green-500 font-semibold'>{item.price}SOL</span>
-                <button className='py-2 px-4 bg-green-500 rounded-full text-xs text-gray-800 hover:bg-gray-800 hover:text-white' onClick={async() => await copyToClipboard(actionlink)}>{copied ? "Copied" : "Copy blink"}</button>
+            {/* <p className='text-sm text-gray-500 mb-4'>{item.description}</p> */}
+            <div className='w-full lg:fle justify-between items-center space-y-2 lg:space-y-0'>
+                <button className='py-3 w-full px-4 bg-slate-900 rounded-md text-xs text-gray-200 hover:bg-gray-800 hover:text-white' onClick={async() => await copyToClipboard(actionlink)}>{copied ? "Copied" : "Copy Blink"}</button>
             </div>
         </div>
     )
